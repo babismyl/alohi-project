@@ -8,6 +8,13 @@ export class LoginPage {
     readonly errorMessage: Locator;
     readonly appSwitcher: Locator;
     readonly faxPlusButton: Locator;
+    readonly signUpButton: Locator;
+    readonly firstNameInput: Locator;
+    readonly lastNameInput: Locator;
+    readonly registrationEmailInput: Locator;
+    readonly registrationPasswordInput: Locator;
+    readonly registerButton: Locator;
+    readonly backButton: Locator;
 
     constructor(page: Page) {
         this.page = page;
@@ -17,6 +24,13 @@ export class LoginPage {
         this.errorMessage = page.getByText('Invalid email or password. Please try again.');
         this.appSwitcher = page.locator('#app-switcher')
         this.faxPlusButton = page.getByText('Fax.Plus');
+        this.signUpButton = page.getByText('Sign Up For Free');
+        this.firstNameInput = page.getByLabel('First name');
+        this.lastNameInput = page.getByLabel('Last name');
+        this.registrationEmailInput = page.getByLabel('Email');
+        this.registrationPasswordInput = page.locator('#password');
+        this.registerButton = page.getByRole('button', { name: 'Register' });
+        this.backButton = page.getByText('Back');
     }
 
     async goto() {
@@ -53,5 +67,18 @@ export class LoginPage {
     async navigateToFaxPlusFromAppSwitcher() {
         await this.appSwitcher.click();
         await this.faxPlusButton.click();
+    }
+
+    async navigateToSignUp() {
+        await this.signUpButton.click();
+    }
+
+    async verifySignUpFormElements() {
+        await this.firstNameInput.waitFor({ state: 'visible' });
+        await this.lastNameInput.waitFor({ state: 'visible' });
+        await this.registrationEmailInput.waitFor({ state: 'visible' });
+        await this.registrationPasswordInput.waitFor({ state: 'visible' });
+        await this.registerButton.waitFor({ state: 'visible' });
+        await this.backButton.waitFor({ state: 'visible' });
     }
 }

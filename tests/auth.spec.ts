@@ -30,4 +30,11 @@ test.describe('Authentication Flow', () => {
         const newTab = await newTabPromise;
         await expect(newTab).toHaveURL('https://app.fax.plus/faxes/inbox?lng=en');
     });
+
+    test('signUpNavigationAndFormElements', async ({ page }) => {
+        await loginPage.navigateToSignUp();
+        await loginPage.verifySignUpFormElements();
+        await loginPage.firstNameInput.fill('Test');
+        await expect(loginPage.firstNameInput).toHaveValue('Test');
+    });
 });
