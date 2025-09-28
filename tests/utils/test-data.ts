@@ -5,7 +5,7 @@ export const TEST_USERS = {
     },
     INVALID_USER: {
         email: 'invalid@example.com',
-        password: 'wrongPassword123'
+        password: 'wrongPassword1234'
     }
 };
 
