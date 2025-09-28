@@ -43,6 +43,7 @@ export class LoginPage {
     }
 
     async enterPassword(password: string) {
+        await this.backButton.waitFor({ state: 'visible' });
         await this.passwordInput.waitFor({ state: 'visible' });
         await this.passwordInput.fill(password);
         await this.signInButton.click();
