@@ -15,15 +15,23 @@ export class LoginPage {
     readonly registrationPasswordInput: Locator;
     readonly registerButton: Locator;
     readonly backButton: Locator;
+    readonly googleLoginButton: Locator;
+    readonly microsoftLoginButton: Locator;
+    readonly microsoftSignInText: Locator;
+    readonly appleLoginButton: Locator;
 
     constructor(page: Page) {
         this.page = page;
         this.emailInput = page.locator('#username');
         this.passwordInput = page.locator('#password');
-        this.signInButton = page.locator('#kc-login')
+        this.signInButton = page.locator('#kc-login');
         this.errorMessage = page.getByText('Invalid email or password. Please try again.');
-        this.appSwitcher = page.locator('#app-switcher')
+        this.appSwitcher = page.locator('#app-switcher');
         this.faxPlusButton = page.getByText('Fax.Plus');
+        this.googleLoginButton = page.locator('#social-google');
+        this.microsoftLoginButton = page.locator('#social-microsoft');
+        this.microsoftSignInText = page.getByText('Sign in');
+        this.appleLoginButton = page.locator('#social-apple');
         this.signUpButton = page.getByText('Sign Up For Free');
         this.firstNameInput = page.getByLabel('First name');
         this.lastNameInput = page.getByLabel('Last name');
@@ -81,5 +89,9 @@ export class LoginPage {
         await this.registrationPasswordInput.waitFor({ state: 'visible' });
         await this.registerButton.waitFor({ state: 'visible' });
         await this.backButton.waitFor({ state: 'visible' });
+    }
+
+    async verifyMicrosoftSignInPage() {
+        await this.microsoftSignInText.waitFor({ state: 'visible' });
     }
 }

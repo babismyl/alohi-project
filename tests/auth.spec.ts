@@ -50,4 +50,22 @@ test.describe('Authentication Flow', () => {
         await loginPage.firstNameInput.fill('Test');
         await expect(loginPage.firstNameInput).toHaveValue('Test');
     });
+
+    test('socialLoginRedirections', async ({ page }) => {
+        await loginPage.goto();
+        // Test Google login redirection
+        await loginPage.googleLoginButton.click();
+        await expect(page).toHaveURL(new RegExp('^https://accounts\\.google\\.com/'));
+        await page.goBack();
+        await expect(page).toHaveURL(new RegExp('^https://id\\.alohi\\.com/'));
+        // Test Microsoft login redirection
+        await loginPage.microsoftLoginButton.click();
+        await expect(page).toHaveURL(new RegExp('^https://login\\.microsoftonline\\.com/'));
+        await loginPage.verifyMicrosoftSignInPage();
+        await page.goBack();
+        await expect(page).toHaveURL(new RegExp('^https://id\\.alohi\\.com/'));
+        // Test Apple login redirection
+        await loginPage.appleLoginButton.click();
+        await expect(page).toHaveURL(new RegExp('^https://appleid\\.apple\\.com/'));
+    });
 });
