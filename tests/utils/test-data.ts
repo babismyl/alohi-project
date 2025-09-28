@@ -11,5 +11,4 @@ export const TEST_USERS = {
 
 export const ERROR_MESSAGES = {
     INVALID_CREDENTIALS: 'Invalid email or password. Please try again.',
-    REQUIRED_PASSWORD: 'Password is required'
 };
