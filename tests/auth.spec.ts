@@ -15,7 +15,7 @@ test.describe('Authentication Flow', () => {
     test('publicSiteToLoginNavigation', async ({ page }) => {
         await homePage.goto();
         await homePage.clickLogin();
-        await expect(page).toHaveURL('https://app.sign.plus/login?lng=en');
+        await expect(page).toHaveURL(new RegExp('^https://id\\.alohi\\.com/'));
         await expect(loginPage.emailInput).toBeVisible();
     });
 
