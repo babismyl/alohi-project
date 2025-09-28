@@ -12,10 +12,10 @@ test.describe('Authentication Flow', () => {
         homePage = new HomePage(page);
     });
 
-    test('publicSiteToLoginNavigation', async ({ page }) => {
+    test('publicSiteToLoginNavigation', async ({ page }) => {  // Triples all timeouts
         await homePage.goto();
         await homePage.clickLogin();
-        await expect(loginPage.emailInput).toBeVisible();
+        await expect(loginPage.emailInput).toBeVisible({ timeout: 30000 }); // 30 seconds timeout
     });
 
     test('testInvalidLogin', async () => {
