@@ -33,10 +33,11 @@ This project contains Playwright end-to-end tests for the authentication and nav
 
 Clone the repository and install dependencies:
 
-```git clone https://github.com/babismyl/alohi-project.git
-cd alohi-project
-npm ci```
-
+```
+git clone https://github.com/babismyl/alohi-project.git
+cd alohi-project`
+npm ci
+```
 ### Running Tests Locally
 
 Execute the Playwright test suite using:
