@@ -35,7 +35,7 @@ Clone the repository and install dependencies:
 
 ```
 git clone https://github.com/babismyl/alohi-project.git
-cd alohi-project`
+cd alohi-project
 npm ci
 ```
 ### Running Tests Locally
