@@ -1,7 +1,5 @@
 # alohi-project
 
-# alohi-project
-
 ## Overview
 
 This project contains Playwright end-to-end tests for the authentication and navigation flows of [sign.plus](https://www.sign.plus/) and related applications as part of a technical take-home test. The suite validates critical user journeys—such as login, sign-up, and cross-app navigation—with a focus on reliability and real-world behavior.
@@ -19,11 +17,10 @@ This project contains Playwright end-to-end tests for the authentication and nav
 - Tests for:
   - Home to login navigation
   - Valid and invalid login scenarios
-  - Maintained session across apps (Sign.Plus/Fax.Plus)
+  - Maintained login session across apps (Sign.Plus/Fax.Plus)
   - Sign-up page navigation and form validation
   - Social login redirections (Google, Microsoft, Apple)
 - Comprehensive error message validation
-- Screenshots and trace/video capture on test failures
 
 ## Getting Started
 
@@ -36,9 +33,9 @@ This project contains Playwright end-to-end tests for the authentication and nav
 
 Clone the repository and install dependencies:
 
-`git clone https://github.com/babismyl/alohi-project.git`
-`cd alohi-project`
-`npm ci`
+```git clone https://github.com/babismyl/alohi-project.git
+cd alohi-project
+npm ci```
 
 ### Running Tests Locally
 
